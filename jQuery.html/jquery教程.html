@@ -45,3 +45,249 @@ hide 隐藏  点击消失
 </html>
 
 
+jQuery 语法
+$(this).hide()         隐藏html元素
+$("#test").hide()      隐藏id="text"元素
+$("p").hide()           隐藏所有<p>元素
+$(".text").hide()       隐藏class="text"的元素
+
+
+<html>
+    <head>
+      <script type="text/javascript" src="/jquery/jquery.js"></script>
+     <script text="text/javascript">
+     $(document).ready(function(){
+         $(button).click(function(){
+             $(this).hide();
+       });
+     });
+    </script>
+    </head>
+    <body>
+        <button type="button">Click me</button>
+    </body>
+</html>
+
+
+
+属性选择器
+$("[href]")               选所以带href的元素
+$("[href='#']")           选取所有href值等于“#”的元素
+$("[href!='#']")          href值不等于“#”的元素
+$("[href$='.jpg']")       href值以".jpg"结尾的元素
+
+$(this)                    当前元素
+$("p")                     所有<p>元素
+$("p.intro")               class=“intro” 的<p>元素
+$(".intro")                class=“intro”的所有元素
+$("#intro")                ID=“intro”的元素
+$("ul li:first")           每个ul中第一个<li>
+$("div#intro.head")        ID="intro"中所有div中 class="head"的元素
+
+
+
+$("p").css("background-color","red");
+
+<html>
+    <head>
+        <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript"></script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                $("p").css("background-color","red")
+            });
+        });
+    </head>
+    <body>
+        <p>sssss</p>
+        <button type="button">click me</button>
+    </body>
+</html>
+
+
+
+var jq=jQuery.noConflict()  代替jq
+例如
+<!DOCTYPE html>
+<html>
+    <head>
+      <script type="text/javascript" src="jquery.js"></script>
+       <script type="text/javascript"></script>
+        $.onConflict();
+        jQuery(document).read(function(){
+            jQuery("button").click(function(){
+                jQuery("p").text("jQuery 仍在运行")；
+            });
+        });
+                        
+    </head>
+    <body>
+        <p>ssskkff</p>
+        <button type="button">测试jQuety</button>
+    </body>
+</html>
+
+
+
+
+
+事件例子
+$(document).ready(function)            当函数加载完成绑定到文档中
+$(selector).click(function)            将函数绑定到被选中的元素的点击事件
+$(selector).dblclick(function)         将函数绑定到被选中的元素的双击事件
+$(selector).focus(function)            将函数绑定到被选中的元素里获得焦点事件
+$(selector).mouseover(function)        将函数绑定到被选中的元素的鼠标悬停事件
+
+
+
+
+
+隐藏文本
+<DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function(){
+            $(".ex .hide").click(function(){
+                $(this).parents(".ex").hide("slow");
+            });
+        });
+    </script>
+    <style type="text/css">
+    <div class="ex">background-color:#ccc;padding:7px;border:solid 1px
+        #665544</div>
+    </style>
+    </head>
+    <body>
+        <div class="ex" >
+            <button class="hide" type="button">隐藏</button>
+            <p>联系人 庄先生</p>
+            </div>
+          <div class="ex" >
+            <button class="hide" type="button">隐藏</button>
+            <p>联系人   塞洛塞洛塞</p>
+            </div>
+    </body>
+</html>
+
+
+显示和隐藏
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="jQuery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#hide").click(function(){
+                $("p").hide();
+            });
+            $("#show").click(function(){
+                $("p").show();
+            });
+        });
+    </script>    
+</head>
+<body>
+    <p>如果点隐藏就消失</p>
+    <button id="hide" type="button">隐藏</button>
+    <button id="show" type="button">显示</button>
+</body>
+</html>
+   
+
+
+
+
+
+toggle 切换（显示和隐藏 ）
+（slow  fast  1000/毫秒）
+fadeTn()         渐渐显示     
+fadeOut()        渐渐淡出
+fadeToggle()     淡入淡出
+fadeTo()         淡出停住    （“slow”,0.35）
+
+
+$(selector),fadeIn(speed,callback);
+
+
+
+滑动   (要添加div)
+slideDown()       渐渐向下滑动
+slideUp()         渐渐向上滑动
+slideToggle()     上下滑动
+
+例如：
+panel 面板   flip 滚动
+<DOCTYPE html>
+    <html>
+    <head>
+        <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $(".flip").click(function(){
+                    $(".panel").slideDown("slow");
+                });
+            });
+           </script>
+           <style type="text/css">
+             div.panel,div.flip{
+               margin:0px;
+               padding:5px;
+               background:#ccc;
+               text-align:center;
+               border:solid 1px #c3c3c3;
+             }
+            div.panel{
+                height:120px;
+                display:none;
+            }
+            </style>
+        </head>
+    <body>
+        <div class="panel">sfffdfffffddffd</div>
+        <p class="flip">点击滑动</p>
+
+    </body>
+    </html>
+
+
+    动画
+    animate（{left:'250px'});
+    animate({height:'+=150px',width:'+=150px'});
+    (点击第一次高宽增加150 在点一次又增加150)
+
+    animate({height:'toggle'});  (滑动切换)
+
+    列表动画
+    $(bocument).click(function(){
+        var div=$("div");
+        div.animate({heig:'300px',opacity:'0.4'},"slow");
+        div.animate({width:'300px',opacity:'0.8'},"slow");
+        div.animate({heig:'100px',opacity:'0.4'},"slow");
+        div.animate({width:'100px',opacity:'0.8'},"slow");
+        
+    });
+
+       div.animate({fontSize:'3em'},"slow");
+       (div里的字体变成3em)
+
+
+
+
+       slideDown(5000)     滑下5秒
+       stop()              停止滑动
+
+
+
+       $("button").click(function(){
+           $("#p1").css("color","red")
+           .slideUp(2000)
+           .slideDown（2000);
+        });
+
+
+text   text();
+html   html();
+value  val/value  ();
+href   attr("href");

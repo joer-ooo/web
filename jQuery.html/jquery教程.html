@@ -40,7 +40,6 @@ hide 隐藏  点击消失
         <p>This is another  paragraph</p>
         <button type="button">Click me</button>  
 
-        999
     </body>
 </html>
 
@@ -121,7 +120,7 @@ var jq=jQuery.noConflict()  代替jq
         });
                         
     </head>
-    <body>
+    <body> 
         <p>ssskkff</p>
         <button type="button">测试jQuety</button>
     </body>
@@ -290,4 +289,145 @@ panel 面板   flip 滚动
 text   text();
 html   html();
 value  val/value  ();
-href   attr("href");
+href   attr("href","http://ddd.com/jquery");
+
+
+
+
+
+origText  原稿
+return    返回
+显示原稿和新稿
+$("#test1").text(function(i,origText){
+    return "Old text: " + origText + 
+    "New text: Hello world! (index: " + i + ")"; 
+
+     $("#test2").html(function(i,origText){
+        return "Old html: " + origText + 
+        " New html: Hello <b>world!</b> (index: " + i + ")"; 
+
+显示值和点击到链接页面
+$("button").click(function(){
+    $("#w3s").attr({"href":"wwwww3sc",
+   "title":"3sc教程"});
+});
+
+
+
+$("button").click(function(){
+    $("#w3s").attr("href","http://www.w3school.com.cn/jquery");
+  });
+  
+
+  $("button").click(function(){
+    $("#w3s").attr({
+      "href" : "http://www.w3school.com.cn/jquery",
+      "title" : "W3School jQuery Tutorial"
+    });
+  });
+  
+
+  $("button").click(function(){
+    $("#w3s").attr("href", function(i,origValue){
+      return origValue + "/jquery";
+    });
+  });
+
+
+
+
+
+
+  append()                 在被选元素结尾插入内容
+  prepend()                在被选元素开头插入内容
+  after()                  在被选元素之后插入内容
+  before()                 在被选元素之前插入内容
+
+
+
+  <script>
+        function appendText()
+        {
+        var txt1="<p>Text.</p>";              // 以 HTML 创建新元素
+        var txt2=$("<p></p>").text("Text.");  // 以 jQuery 创建新元素
+        var txt3=document.createElement("p");
+        txt3.innerHTML="Text.";               // 通过 DOM 来创建文本
+        $("body").append(txt1,txt2,txt3);        // 追加新元素
+        }
+        </script>
+
+
+<script>
+        function afterText()
+        {
+        var txt1="<b>I </b>";                    // 以 HTML 创建元素
+        var txt2=$("<i></i>").text("love ");     // 通过 jQuery 创建元素
+        var txt3=document.createElement("big");  // 通过 DOM 创建元素
+        txt3.innerHTML="jQuery!";
+        $("img").after(txt1,txt2,txt3);          // 在 img 之后插入新元素
+        }
+        </script>
+
+
+
+
+          div 中    
+
+remove()              删除被选元素（以及其子元素）
+empty()               从被选元素中删除子元素
+
+.italic               class中的斜体
+important             加大加粗
+innerWidth           padding+box的宽                inner width of div：
+innerHeight           padding+box的高               outer height of div:
+outerWidth            box(width)+padding+border     inner width of div
+outerHeight           box(Height)+padding+border    outer height of div:
+outerWidth(true)      box(width)+padding+border+margin
+outerHeight(true)     box(Height)+padding+border+margin
+
+
+例如：
+txt+="Document width/height: " + $(document).width()+"x" + $(document).height() + "\n";
+txt+="Window width/height: " + $(window).width()+"x" + $(window).height();
+
+addClass()              增加元素
+removeClass()           从被选元素中删除一个或者多个
+toggleClass()           对被选元素进行添加或者删除的切换
+css()                   设置或返回样式属性
+
+
+.ancestors *{}      class 以下的所有设置
+parent()              父级设置
+parents()              父级以上设置
+parents("ul")          父级以上中ul的设置
+parentsUntil("div")    div以下到定元素之间的设置
+children()             所有子级设置
+children("p1")         指定子级设置
+find("span")           指定以下级中span的设置
+find("*")              整个div中的设置
+siblings()             所有同级同胞
+siblings("p")          指定p同级同胞
+next()                 下一个元素设置
+nextAll()              下级所有元素设置
+nextUntil("h6")        下级到h6之间的元素设
+first()                 第一个子元素设置       "div p"中用
+last()                  最后一个元素设置       "div p"中用
+eq()                    第几个元素设置（从0开始）         第一个p值为0
+filtet(".intro")        class=intro的元素设置
+not(".intro")           除了class=intro的元素设置
+
+    
+
+
+例如：
+$(document).ready(function(){
+    $("span").parent().css({"color":"red","border":"2px solid red"});
+  });
+
+
+
+
+
+
+
+

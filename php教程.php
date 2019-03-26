@@ -14,7 +14,7 @@
 
 local                  内是内值  外是外值
 global                 全局 函数内 外 都值都一样
-static
+static                 静态
 
 
 
@@ -24,7 +24,7 @@ print 打印
 strlen()   函数返回字符串的长度
 str_word_count()   函数上对字符串中的单词计数
 strrev()           函数反转字符串   反着显示
-strpos()           函数用于检索字符串内指定的字符或者文本
+strpos()           函数用于检索字符串内指定的字符或者文本  从0开始
 str_replace()      函数用于一些字符串代替字符串
 
 例如：
@@ -103,7 +103,7 @@ do..while..
 for($x=0;$x<=10;$x++){echo" ";}
 
 foreach循环只适用于数组
-
+return  返回值   
 
 
 
@@ -188,3 +188,12 @@ Comment: <textarea name="comment" rows="5" cols="40"></textarea>
 </body>
 
 </html>
+
+
+$name = text_input($_POST["name"]);
+if(!preg_match("/^[a_zA_Z]*$/",$name)){
+  $nameErr ="只允许字母和空格！"；
+}
+
+
+

@@ -1,0 +1,86 @@
+method   描述PHP的post和get
+
+input  type="submit"  提交
+              “reset”  重置
+              “button” 普通按钮 
+              “radio” 单选输入区
+              “checkbox”复选输入区
+              “hidden”  隐藏区
+  
+              checked  默认显示
+
+textarea 多行文本区
+
+<select><option></option></select>  选择列 
+
+cellspacing    表格单元格之间的间距 默认值2 像素 
+cellpadding    单元格内容与边框距离 
+rowspan        跨越行数
+colspan        跨越列数
+avalign        水平位置
+valign         垂直位置
+frameborder    是否显示边框      0不显示 1显示
+scrolling      是否滚动
+noresize       不能调节窗口大小
+
+
+<html>
+    <head>
+        <title>LAMP学员基本信息</title>
+</head>
+    <body>
+        <table align="center" width="500" border="0" cellpadding="2" cellspacing="0">
+            <caption align="center"><h2>LAMP学员基本信息</h2></caption>
+         <form>   
+             <tr>
+                 <th>姓名：</th>
+                 <td><input type="text" name="usename" size="20"></td>
+             </tr>
+             <tr>
+                 <th>性别：</th>
+                 <td>
+                     <input type="radio" name="sex" value="1" checked >男
+                     <input type="radio" name="sex" value="2">女
+                     <input type="radio" name="sex" value="0">保密  
+                 </td>
+             </tr>
+             <tr>
+                 <th>学历：</th>
+                 <td>
+                     <select name="edu">
+                         <option>--请选择--</option>
+                         <option value="1">高中</option>
+                         <option value="2">大专</option>
+                         <option value="3">本科</option>
+                         <option value="4">研究生</option>
+                         <option value="5">其他</option>
+                     </select>
+                 </td>
+             </tr>
+             <tr>
+                 <td>选修课程：</td>
+                 <td>
+                     <input type="checkbox" name="couse[]" value="4">linux
+                     <input type="checkbox" name="couse[]" value="5">Apache
+                     <input type="checkbox" name="couse[]" value="6">Mysql
+                     <input type="checkbox" name="couse[]" value="7">PHP
+                </td>
+             </tr>
+             <tr>
+                 <th>自我评价：</th>
+                 <td>
+                     <textarea name="eval"  cols="40" rows="4"></textarea>
+                 </td>
+             </tr>
+             <tr>
+                 <tr>
+                     <td colspan="2" align="center">
+                     <input type="submit" name="submit" value="提交">
+                     <input type="reset" name="reset"  value="重置">
+                 </td>
+                </tr>
+             </tr>
+            </form>
+        </table>
+    </body>
+</html>

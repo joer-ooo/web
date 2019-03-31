@@ -131,5 +131,97 @@ a ? b : c    如果a 为trun 执行b值   为false 执行c值
 反引号 （）    操作系统命令来执行
                                 同shell_exec()效果一样
 
+          
 
+
+                    计算器
                                 
+<html>
+<head>
+  <title>PHP实现简单计算机（使用分支结构）</title>
+</head>
+<body>
+    <?php
+    $mess = "";
+    if(isset($_POST["sub"])){
+        if($_POST["num1"] ==""){
+           $mess .="第一个数不能为空！<br>";
+        }
+        else{
+            if(!is_numeric($_POST["num1"])){
+                $mess .="第一个数必须是数学！<br>";
+            }
+        }
+        if($_POST["num2"]==""){
+            $mess .="第二个数不能为空！<br>"
+        }
+        else{
+            if(!is_numeric($_POST["num2"])){
+              $mess .="第二个数必须上数字！<br>";
+            }
+            else{
+                if($_POST["pot"]=="/"&& $_POST["num2"]==0){
+                    $mess .="除数不能为0";
+                } 
+            }
+        }
+    }
+    ?>
+ <table border="1" align="center" width="400">
+    <form action="" ,method="post">
+      <caption><h1>计算机</h1></caption>
+      <tr>
+        <td>
+         <input type="text" size="4" name="num1" value="<?php echo $_POST["num1"]?>"/>
+        </td>
+        <td>
+        <select name="pot">
+          <option value="+"<?php echo $_POST["opt"]=="+"? "selected":""?>>+</option>
+          <option value="-" <?php echo $_POST["opt"]=="-"?"selected":""?>>-</option>
+          <option value="*" <?php echo $_POST["opt"]=="*"?"selected":""?>>*</option>
+          <option value="/"<?php echo $_POST["opt"]=="/"?"selected":""?>>/</option>
+          <option value="%" <?php echo $_POST["opt"]=="%"?"seleted":""?>>%</option>
+        </select>
+        </td>
+        <td>
+        <input type="text" size="4" name="num2" value="<?php echo $_POST["num2"]?>"/>
+        </td>
+        <td>
+        </td>
+        <input type="sumbit"name="sub" value="计算"/>
+      </tr>
+     </form>
+    
+     <?php
+        if(isset($_POST["sub"])){
+            echo '<tr><td colspan="4">';
+         
+          if(!mess){
+              $sum=0;
+              switch($_POST["opt"]){
+                  case"+";
+                   $sum=$_POST["num1"]+$_POST["num2"];beak;
+                   case"-";
+                   $sum=$_POST["num1"]-$_POST["num2"];beak;
+                   case"*";
+                   $sum=$_POST["num1"]*$_POST["num2"];beak;
+                   case"/";
+                   $sum=$_POST["num1"]/$_POST["num2"];beak;
+                    case"%";
+                    $sun=$_POST["num1"]%$_POST["num2"];beak;
+              }
+                echo"结果：{$_POST["num1"]}{$_POST["opt"]}{$_POST["num2"]}={$sum}";
+               
+            }else{
+                  echo $mess;
+              }
+              echo '</tr></td>'
+          } 
+        
+     
+     ?>
+ 
+ 
+ </table>
+</body>
+</html>

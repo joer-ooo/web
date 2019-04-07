@@ -225,3 +225,97 @@ a ? b : c    如果a 为trun 执行b值   为false 执行c值
  </table>
 </body>
 </html>
+
+
+
+
+<html>
+<head>
+   <title>使用while循环嵌套输出表格</title>
+</head>
+<body>
+  <table align="center" border="1" width="600">
+   <caption><h1>使用while循环嵌套输出表格</h1></caption>
+    <?php 
+    $out=0;
+    while($out<10){
+        $bgcolor=$out%2==0? "#FFFFFF":"#DDDDDD";
+
+        echo "<tr bgcolor=".$bgcolor.">"
+        
+        $in=0
+        while($in<10){
+            echo"<td>".($out*10+$in)."</td>"
+            $in++;
+        }
+        echo"</tr>"
+        $out++;
+    }
+    ?>
+  </table>
+    
+</body>
+</html>
+
+
+
+<?php
+  for($i=1;$i<=9;$i++){
+      for($j=1;$j<=9:$j++){
+          echo "$j*$i= ".$j*$i."&nbsp;&nbsp;";
+      }
+      echo"</br>"
+  }
+?>
+
+
+
+table()
+@param   string  $tabkeName    需要一个字符串类型的表名
+@param   int     $rows         需要一个整型数值设置表格的行数
+@param   int     $cols         需要另一个整型值设置表格的列数
+    
+
+function table($tableName ,$rows,$cols){
+    echo "<table align='center' border='1' width='600'>";
+    echo "<caption><h1>$tableName</h1></caption>";
+    
+    for($out=0;$out<$rows;$out++){
+        $bgcolor=$out%2==0? "#FFFFFF":"#DDDDDD";
+        echo" <tr bglcor=".$bgcolor.">";
+        
+        for($in=0;$in<$cols;$in++){
+            echo"<td>".($out*$cols+$in)."</td>"
+        }
+        
+        echo"</tr>"
+
+<?php
+function table($tableName,$rows,$cols){
+    $str_table="";
+    $str_table.="<table align='center' width='600'> ";
+    $str_table.="<caption><h1>$tableName</h1></caption>";
+
+    for($out=0;$out<$rows;$out++){
+        $bgcolor=$out%2==0?"#FFFFFF":"#DDDDDD";
+        $str_table.="<tr bgcolor=".$bgcolor.">";
+        
+        for($in=0;$in<$cols;$in++){
+            $str_table.="<tr>".($out*$cols+$in)."</tr>";
+
+        
+        $str_table.="</tr>";
+    }
+    
+    $str_table.="</table>";
+    return $str_table;
+}
+     $str=table("第一个3行4列的表"，3，4)；
+     echo table("第二个2行10列的表"，2，10)；
+     echo $str;    
+?>
+    }
+     
+    echo"</table>"
+}
+

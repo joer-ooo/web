@@ -321,3 +321,13 @@ function table($tableName,$rows,$cols){
 
 
 
+  function test(){
+     static $a=0;
+     echo $a;
+     $a++;
+  }
+   test();                       0 
+   test();                       1
+   test();                       2
+   
+     

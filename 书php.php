@@ -16,9 +16,8 @@
             $gd = gd_info();
             $gdinfo = $gd['GD Version'];
         }
-        else{
-            $gdinfo = "未知"；
-        }
+        else
+        
     $freetype = $gd["FreeType Support"]? "支持":"不支持"；
     $allowurl = ini_get("allow_url_fopen")? "支持"；"不支持"；
     $max_upload = ini_get("file_uploads")? ini_get("upload_max_filesize"): "Disabled";
